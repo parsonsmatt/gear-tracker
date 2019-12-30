@@ -1,14 +1,15 @@
 name:                gear-tracker
 version:             0.1.0.0
-github:              "githubuser/gear-tracker"
+github:              "parsonsmatt/gear-tracker"
 license:             BSD3
-author:              "Author name here"
-maintainer:          "example@example.com"
-copyright:           "2019 Author name here"
+author:              "Matt Parsons"
+maintainer:          "parsonsmatt@gmail.com"
+copyright:           "2019 Matt Parsons"
 
 extra-source-files:
 - README.md
 - ChangeLog.md
+- LICENSE
 
 # Metadata used when publishing your package
 # synopsis:            Short description of your package
@@ -21,6 +22,20 @@ description:         Please see the README on GitHub at <https://github.com/gith
 
 dependencies:
 - base >= 4.7 && < 5
+- persistent
+- persistent-postgresql
+- persistent-template
+- text
+- template-haskell
+
+default-extensions:
+- NoImplicitPrelude
+- TemplateHaskell
+- TypeFamilies
+- UndecidableInstances
+- GADTs
+- MultiParamTypeClasses
+- GeneralizedNewtypeDeriving
 
 library:
   source-dirs: src

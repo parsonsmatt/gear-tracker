@@ -1,0 +1,7 @@
+Component
+    name        Text
+    brand       Text
+    model       Text
+    description Text
+
+    parent      ComponentId

@@ -4,6 +4,10 @@
 --
 -- I chose the name `GT` for the namespace to keep module names long,
 -- especially as nesting becomes a larger factor.
-module GT where
+module GT
+    ( module GT
+      -- * Database and Data models
+    , module GT.DB
+    ) where
 
-
+import GT.DB
