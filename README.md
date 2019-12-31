@@ -8,3 +8,7 @@ This app was inspired by some of the shortcomings of Strava's feature to accompl
 
 The `Makefile` is documented and contains the common steps for building, testing, and documenting the project.
 This project uses the `stack` build tool for development.
+
+### Code Style
+
+- `stylish-haskell`

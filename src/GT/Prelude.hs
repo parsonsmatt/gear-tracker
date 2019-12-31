@@ -2,8 +2,10 @@
 module GT.Prelude
     ( module Prelude
     , Text
+    , MonadIO(..)
     ) where
 
-import Prelude
+import           Prelude
 
-import Data.Text (Text)
+import           Control.Monad.IO.Class (MonadIO (..))
+import           Data.Text              (Text)

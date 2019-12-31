@@ -4,4 +4,4 @@ Component
     model       Text
     description Text
 
-    parent      ComponentId
+    parent      ComponentId Maybe

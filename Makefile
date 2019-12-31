@@ -26,4 +26,8 @@ open-docs: ## Open documentation for the application
 watch: ## Run a file-watcher build process
 	stack build --fast --file-watch --ghc-options $(GHC_OPTIONS)
 
-.PHONY: ghcid help build test watch
+init_db: ## Create the initial database.
+	createdb geartracker
+	stack exec -- migrate
+
+.PHONY: ghcid help build test watch init_db
