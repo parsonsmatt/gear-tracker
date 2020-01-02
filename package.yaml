@@ -23,12 +23,13 @@ description:         Please see the README on GitHub at <https://github.com/gith
 dependencies:
 - base >= 4.7 && < 5
 - directory
+- monad-logger
 - persistent
 - persistent-postgresql
 - persistent-template
-- text
 - template-haskell
-- monad-logger
+- text
+- time
 
 default-extensions:
 - NoImplicitPrelude

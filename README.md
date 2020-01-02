@@ -9,6 +9,12 @@ This app was inspired by some of the shortcomings of Strava's feature to accompl
 The `Makefile` is documented and contains the common steps for building, testing, and documenting the project.
 This project uses the `stack` build tool for development.
 
+### Database
+
+The program uses `postgresql` as a database.
+It assumes that the database is named `geartracker` and that the current user is able to access the database.
+Running `make init_db` will initialize the database and run the migrations.
+
 ### Code Style
 
 - `stylish-haskell`
