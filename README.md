@@ -18,3 +18,8 @@ Running `make init_db` will initialize the database and run the migrations.
 ### Code Style
 
 - `stylish-haskell`
+
+## Documentation:
+
+The project is documented via `README.md` in the relevant directories and Haddock documentation.
+For 'namespace' modules, like [`GT`](src/GT.hs), the module documentation serves as the 'directory' documentation.
