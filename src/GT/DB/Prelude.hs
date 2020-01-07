@@ -8,12 +8,12 @@ module GT.DB.Prelude
     , module GT.Prelude
     ) where
 
-import           GT.Prelude
+import GT.Prelude
 
-import           Database.Persist.Quasi
-import           Database.Persist.Sql
-import           Database.Persist.TH
-import           Language.Haskell.TH
+import Database.Persist.Quasi
+import Database.Persist.Sql
+import Database.Persist.TH
+import Language.Haskell.TH
 
 mkModel :: [EntityDef] -> DecsQ
 mkModel = mkPersist sqlSettings
