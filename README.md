@@ -1,5 +1,7 @@
 # gear-tracker
 
+[![Build Status](https://travis-ci.org/parsonsmatt/gear-tracker.svg?branch=master)](https://travis-ci.org/parsonsmatt/gear-tracker)
+
 It's good to track the mileage that you put on your gear.
 This helps when knowing when it's time to do preventative maintenance, knowing how much distance/use you're getting out of your gear, and, when reselling items, how much use the next owner can expect.
 This app was inspired by some of the shortcomings of Strava's feature to accomplish this task.
