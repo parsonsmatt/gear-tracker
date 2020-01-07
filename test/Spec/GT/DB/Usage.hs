@@ -15,6 +15,7 @@ spec :: Spec
 spec = do
     describe "new" $ do
         it "works" $ do
+            pendingWith "really need a better database testing story!!"
             usageIds <- runNoLoggingT $
                 withPostgresqlConn "dbname=geartracker" $ \conn -> do
                     flip runSqlConn conn $ do
