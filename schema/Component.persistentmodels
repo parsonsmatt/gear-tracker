@@ -1,5 +1,6 @@
 Component
     name        Text
+    part        Text
     brand       Text
     model       Text
     description Text

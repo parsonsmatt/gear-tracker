@@ -9,10 +9,21 @@ help: ## Print documentation
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
 
 ghcid: ## Rebuild the application in ghcid.
-	ghcid --command "stack ghci"
+	ghcid \
+	    --command "stack ghci" \
+	    --restart=package.yaml
+
+ghcid-test: ## Rebuild the application and all tests in ghcid
+	ghcid \
+	    --command "stack ghci gear-tracker:test:gear-tracker-test gear-tracker:lib" \
+	    --restart=package.yaml \
+	    --run=main
 
 build: ## Build the entire application
 	stack build --fast --ghc-options $(GHC_OPTIONS)
+
+build-watch: ## Build the entire application
+	stack build --file-watch --fast --ghc-options $(GHC_OPTIONS)
 
 test: ##  Run tests for the application
 	stack test --fast --ghc-options $(GHC_OPTIONS)
@@ -26,7 +37,7 @@ open-docs: ## Open documentation for the application
 watch: ## Run a file-watcher build process
 	stack build --fast --file-watch --ghc-options $(GHC_OPTIONS)
 
-init_db: ## Create the initial database.
+init-db: ## Create the initial database.
 	createdb geartracker
 	stack exec -- migrate
 

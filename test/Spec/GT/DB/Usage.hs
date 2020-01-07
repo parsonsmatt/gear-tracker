@@ -21,6 +21,7 @@ spec = do
                     flip runSqlConn conn $ do
                         componentId <- insert Component
                             { componentName = "Scrubtrout"
+                            , componentPart = "Frame"
                             , componentBrand = "Salsa"
                             , componentModel = "Cutthroat"
                             , componentDescription = ""
@@ -29,6 +30,7 @@ spec = do
                         bikeId <- insert $ Bike componentId
                         wheelId <- insert Component
                             { componentName = "Good wheel"
+                            , componentPart = "Front wheel"
                             , componentBrand = "WTB"
                             , componentModel = "Asym 29"
                             , componentDescription = "it is p good"
