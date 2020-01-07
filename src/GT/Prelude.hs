@@ -4,11 +4,13 @@ module GT.Prelude
     , Text
     , module Control.Monad.IO.Class
     , module Data.Time
+    , module Data.Ratio
     ) where
 
 import Prelude
 
 import Control.Monad.IO.Class
+import Data.Ratio
 import Data.Text
     ( Text
     )

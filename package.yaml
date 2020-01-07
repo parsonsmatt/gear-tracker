@@ -24,6 +24,7 @@ dependencies:
 - base >= 4.7 && < 5
 - directory
 - monad-logger
+- esqueleto
 - persistent
 - persistent-postgresql
 - persistent-template

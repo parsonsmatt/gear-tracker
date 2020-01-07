@@ -2,7 +2,7 @@ module GT.DB.Schema.Usage where
 
 import GT.DB.Prelude
 
-import GT.DB.Ride
-import GT.DB.Component
+import GT.DB.Schema.Ride
+import GT.DB.Schema.Component
 
 mkModel $(loadModel "Usage")

@@ -2,9 +2,10 @@
 -- Generally speaking, whenever there exists an @.Prelude@ module in the
 -- codebase, prefer to import that instead of the Prelude.
 module GT.DB.Prelude
-    ( module GT.Prelude
-    , mkModel
+    ( mkModel
     , loadModel
+    -- * Reexports
+    , module GT.Prelude
     ) where
 
 import           GT.Prelude
