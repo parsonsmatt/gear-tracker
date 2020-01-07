@@ -1,4 +1,4 @@
-module GT.DB.Ride where
+module GT.DB.Schema.Ride where
 
 import GT.DB.Prelude
 

@@ -1,6 +1,6 @@
 -- | This module exists to provide @persistent@ automigrations. Eventually,
 -- that feature will be removed in favor of manual migrations.
-module GT.DB.Migration where
+module GT.DB.Schema.Migration where
 
 import GT.DB.Prelude
 

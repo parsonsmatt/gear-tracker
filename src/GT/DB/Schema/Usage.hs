@@ -1,4 +1,4 @@
-module GT.DB.Usage where
+module GT.DB.Schema.Usage where
 
 import GT.DB.Prelude
 

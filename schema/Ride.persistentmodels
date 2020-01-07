@@ -1,2 +1,3 @@
 Ride
-    date    UTCTime
+    date        UTCTime
+    distance    Rational

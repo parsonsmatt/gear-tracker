@@ -1,4 +1,4 @@
-module GT.DB.Component where
+module GT.DB.Schema.Component where
 
 import GT.DB.Prelude
 
