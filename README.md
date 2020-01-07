@@ -13,7 +13,7 @@ This project uses the `stack` build tool for development.
 
 The program uses `postgresql` as a database.
 It assumes that the database is named `geartracker` and that the current user is able to access the database.
-Running `make init_db` will initialize the database and run the migrations.
+Running `make init-db` will initialize the database and run the migrations.
 
 ### Code Style
 
