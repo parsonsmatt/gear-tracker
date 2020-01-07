@@ -5,6 +5,7 @@ module GT.Prelude
     , module Control.Monad.IO.Class
     , module Data.Time
     , module Data.Ratio
+    , module Data.Traversable
     ) where
 
 import Prelude
@@ -15,3 +16,4 @@ import Data.Text
     ( Text
     )
 import Data.Time
+import Data.Traversable

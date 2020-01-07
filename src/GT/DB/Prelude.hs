@@ -6,6 +6,8 @@ module GT.DB.Prelude
     , loadModel
     -- * Reexports
     , module GT.Prelude
+    , SqlPersistT
+    , Entity(..)
     ) where
 
 import GT.Prelude

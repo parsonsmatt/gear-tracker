@@ -23,23 +23,26 @@ description:         Please see the README on GitHub at <https://github.com/gith
 dependencies:
 - base >= 4.7 && < 5
 - directory
-- monad-logger
 - esqueleto
+- monad-logger
 - persistent
 - persistent-postgresql
+- persistent-qq
 - persistent-template
 - template-haskell
 - text
 - time
 
 default-extensions:
+- GADTs
+- GeneralizedNewtypeDeriving
+- MultiParamTypeClasses
 - NoImplicitPrelude
+- OverloadedStrings
+- QuasiQuotes
 - TemplateHaskell
 - TypeFamilies
 - UndecidableInstances
-- GADTs
-- MultiParamTypeClasses
-- GeneralizedNewtypeDeriving
 
 library:
   source-dirs: src
