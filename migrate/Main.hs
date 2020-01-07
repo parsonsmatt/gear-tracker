@@ -9,7 +9,7 @@ import Control.Monad.Logger
 import Data.String
 import Database.Persist.Postgresql
 
-import GT.DB.Migration
+import GT.DB.Schema.Migration
 
 connstr :: String
 connstr = "dbname=geartracker"

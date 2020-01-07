@@ -17,24 +17,29 @@ import GT.DB.Schema.Ride
 
 -- | Create a new 'Usage' for all components on the 'Bike' for the given
 -- 'Ride'.
+--
+-- TODO: esqueleto does not support CTEs. It should!
 new :: (MonadIO m) => BikeId -> RideId -> SqlPersistT m [UsageId]
 new bikeId rideId = do
     components <- [sqlQQ|
 WITH RECURSIVE children AS (
-    SELECT *
-    FROM component
+    SELECT c.*
+    FROM component AS c
+
     UNION ALL
+
     SELECT c_r.*
     FROM component AS c_r
     INNER JOIN children AS c
-        ON c_r.parent_id = c.id
+        ON c_r.parent = c.id
     )
 SELECT ??
 FROM bike AS b
-INNER JOIN children
-    ON children.parent_id = b.id
-WHERE b.id = #{bikeId}
+INNER JOIN children AS component
+    ON component.parent = b.component
+WHERE b.component = #{bikeId}
         |]
+
     for components $ \(Entity componentId _) -> do
         insert Usage
             { usageComponent = componentId

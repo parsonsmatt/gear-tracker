@@ -32,6 +32,8 @@ dependencies:
 - template-haskell
 - text
 - time
+- tmp-postgres
+- hspec
 
 default-extensions:
 - GADTs
