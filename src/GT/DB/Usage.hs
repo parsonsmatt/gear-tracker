@@ -8,7 +8,7 @@ module GT.DB.Usage
 import GT.DB.Prelude
 
 import Database.Persist.Sql.Raw.QQ
-import Database.Persist.Sql (insert)
+import Database.Persist.Sql (insert, get)
 
 import GT.DB.Schema.Bike
 import GT.DB.Schema.Component
