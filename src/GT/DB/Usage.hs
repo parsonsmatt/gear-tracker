@@ -40,8 +40,13 @@ INNER JOIN children AS component
 WHERE b.component = #{bikeId}
         |]
 
-    for components $ \(Entity componentId _) -> do
-        insert Usage
-            { usageComponent = componentId
-            , usageRide = rideId
-            }
+    mride <- get rideId
+    case mride of
+        Nothing ->
+            pure []
+        Just _ ->
+            for components $ \(Entity componentId _) ->
+                insert Usage
+                    { usageComponent = componentId
+                    , usageRide = rideId
+                    }
