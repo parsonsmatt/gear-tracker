@@ -19,9 +19,9 @@ steps:
   # and only applies to statements where each element occupies a single
   # line. All default to true.
   - simple_align:
-      cases: true
-      top_level_patterns: true
-      records: true
+      cases: false
+      top_level_patterns: false
+      records: false
 
   # Import cleanup
   - imports:
