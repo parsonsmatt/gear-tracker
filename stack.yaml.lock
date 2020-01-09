@@ -12,12 +12,12 @@ packages:
   original:
     hackage: persistent-template-2.8.0
 - completed:
-    hackage: persistent-2.10.4@sha256:16c4c0823dd5e16bac4d607895ab0f4febd0626c020e5755ed1a52bf04068148,4738
+    hackage: persistent-2.10.0@sha256:c742d8dfa89ebcaded0c19d703e0a4b4a36f56d7958278a51b237f601ff1c77b,4728
     pantry-tree:
       size: 2094
-      sha256: b40d1783b539ddbbceaa827bf286d0b3bfcf76ca19e604c9d510b2a64008714e
+      sha256: 68bb22e80b4a76590b45b13c16cfe01dd203bbbe106eeb5b2fbb5b22fc024766
   original:
-    hackage: persistent-2.10.4
+    hackage: persistent-2.10.0
 - completed:
     hackage: persistent-postgresql-2.10.0@sha256:87384a179e44b57af7b12b00ccfdfc4bc03010a438aad207b9f38def0147cda2,2829
     pantry-tree:
