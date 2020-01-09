@@ -1,0 +1,6 @@
+StravaGear
+    Id          Text
+    brandName   Text
+    modelName   Text
+    description Text
+    distance    Double

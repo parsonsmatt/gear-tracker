@@ -49,6 +49,17 @@ default-extensions:
 - TypeFamilies
 - UndecidableInstances
 
+ghc-options:
+  - -Wall
+  - -Wincomplete-uni-patterns
+  - -Wincomplete-record-updates
+  - -Wmissing-local-signatures
+  - -Wmissing-exported-signatures
+  - -Wmissing-home-modules
+  - -Widentities
+  - -Wredundant-constraints
+  - -Wpartial-fields
+
 library:
   source-dirs: src
 
