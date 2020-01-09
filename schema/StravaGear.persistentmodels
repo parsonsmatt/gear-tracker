@@ -1,6 +1,8 @@
 StravaGear
-    Id          Text
+    stravaId    Text
     brandName   Text
     modelName   Text
     description Text
     distance    Double
+
+    UniqueGearStravaId stravaId

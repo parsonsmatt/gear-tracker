@@ -3,6 +3,7 @@ module GT.Prelude
     ( todo
     , module Prelude
     , Text
+    , module Control.Monad
     , module Control.Monad.IO.Class
     , module Data.Time
     , module Data.Ratio
@@ -12,6 +13,7 @@ module GT.Prelude
 
 import Prelude
 
+import Control.Monad
 import Control.Monad.IO.Class
 import Data.Foldable
 import Data.Ratio
