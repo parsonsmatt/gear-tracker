@@ -66,8 +66,7 @@ runImport runDB token = do
                         Just _gear ->
                             logInfoN "Gear already present in the database."
 
-                for_ results $ \result ->
-                    void $ runDB $ DB.upsert (mkActivityFromStrava result) []
+                runDB $ DB.putMany (map mkActivityFromStrava results)
 
                 loop client (pageNumber + 1)
 
