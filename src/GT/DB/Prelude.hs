@@ -8,11 +8,14 @@ module GT.DB.Prelude
     , module GT.Prelude
     , SqlPersistT
     , Entity(..)
+    , OnlyOneUniqueKey(..)
+    , AtLeastOneUniqueKey(..)
     ) where
 
 import GT.Prelude
 
 import Database.Persist.Quasi
+import Database.Persist.Class
 import Database.Persist.Sql
 import Database.Persist.TH
 import Language.Haskell.TH

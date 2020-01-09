@@ -1,0 +1,6 @@
+StravaActivity
+    stravaId        Int
+    metaAthlete     Int
+    distance        Double
+
+    UniqueActivityStravaId stravaId

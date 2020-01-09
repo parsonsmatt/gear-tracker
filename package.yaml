@@ -24,27 +24,41 @@ dependencies:
 - base >= 4.7 && < 5
 - directory
 - esqueleto
+- hspec
 - monad-logger
 - persistent
 - persistent-postgresql
 - persistent-qq
 - persistent-template
+- strive
 - template-haskell
 - text
 - time
 - tmp-postgres
-- hspec
 
 default-extensions:
+- DerivingStrategies
 - GADTs
 - GeneralizedNewtypeDeriving
 - MultiParamTypeClasses
 - NoImplicitPrelude
 - OverloadedStrings
 - QuasiQuotes
+- StandaloneDeriving
 - TemplateHaskell
 - TypeFamilies
 - UndecidableInstances
+
+ghc-options:
+  - -Wall
+  - -Wincomplete-uni-patterns
+  - -Wincomplete-record-updates
+  - -Wmissing-local-signatures
+  - -Wmissing-exported-signatures
+  - -Wmissing-home-modules
+  - -Widentities
+  - -Wredundant-constraints
+  - -Wpartial-fields
 
 library:
   source-dirs: src

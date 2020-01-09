@@ -8,7 +8,6 @@ import Data.List
 import System.Directory
 
 import Database.Persist.Quasi
-import Database.Persist.Sql
 import Database.Persist.TH
 
 mkMigrate "migrateAll" $(do
