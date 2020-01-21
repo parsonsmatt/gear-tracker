@@ -19,12 +19,12 @@ packages:
   original:
     hackage: persistent-2.10.4
 - completed:
-    hackage: persistent-postgresql-2.10.0@sha256:87384a179e44b57af7b12b00ccfdfc4bc03010a438aad207b9f38def0147cda2,2829
+    hackage: persistent-postgresql-2.10.1.1@sha256:64bb59ddc3f0897667d7fa64edfd1d92febdbfe1a94a7556151a8138025b7b1a,2873
     pantry-tree:
-      size: 671
-      sha256: 5a2b25b40cb440466792b9ae293de95b4fcfcd1410c1c7aed9ffc8001699f5dc
+      size: 740
+      sha256: 14a66e2dedb61eb7a230d28d58736bd9c884c3dc6cd0baa69f0dcd736cd0ab1b
   original:
-    hackage: persistent-postgresql-2.10.0
+    hackage: persistent-postgresql-2.10.1.1
 snapshots:
 - completed:
     size: 524799
