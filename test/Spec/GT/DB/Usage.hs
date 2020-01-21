@@ -2,22 +2,24 @@ module Spec.GT.DB.Usage where
 
 import Spec.GT.Prelude
 
-import Control.Monad.Logger
-import Data.Time.Clock
-import Database.Persist.Postgresql
+import           Control.Monad.Logger
+import           Data.Time.Clock
+import           Database.Persist.Postgresql
+import qualified Database.Postgres.Temp      as Temp
 
-import GT.DB.Usage as Usage
-import GT.DB.Schema.Ride
-import GT.DB.Schema.Component
 import GT.DB.Schema.Bike
+import GT.DB.Schema.Component
+import GT.DB.Schema.Ride
+import GT.DB.Usage            as Usage
 
 spec :: Spec
 spec = do
     describe "new" $ do
         it "works" $ do
             pendingWith "really need a better database testing story!!"
-            usageIds <- runNoLoggingT $
-                withPostgresqlConn "dbname=geartracker" $ \conn -> do
+            usageIds <-
+                Temp.with $ \db -> runNoLoggingT $
+                withPostgresqlConn (Temp.toConnectionString db) $ \conn -> do
                     flip runSqlConn conn $ do
                         componentId <- insert Component
                             { componentName = "Scrubtrout"

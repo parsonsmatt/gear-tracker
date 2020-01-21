@@ -36,12 +36,14 @@ dependencies:
 - hspec
 
 default-extensions:
+- DerivingStrategies
 - GADTs
 - GeneralizedNewtypeDeriving
 - MultiParamTypeClasses
 - NoImplicitPrelude
 - OverloadedStrings
 - QuasiQuotes
+- StandaloneDeriving
 - TemplateHaskell
 - TypeFamilies
 - UndecidableInstances
