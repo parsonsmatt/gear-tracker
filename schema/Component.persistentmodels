@@ -6,3 +6,5 @@ Component
     description Text
 
     parent      ComponentId Maybe
+
+    deriving Show Eq

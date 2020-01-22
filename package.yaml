@@ -26,6 +26,7 @@ dependencies:
 - directory
 - esqueleto
 - hspec
+- hspec-expectations-lifted
 - monad-logger
 - mtl
 - persistent
