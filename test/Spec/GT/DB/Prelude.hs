@@ -76,7 +76,7 @@ provideDatabase = do
             runNoLoggingT $
             withPostgresqlConn (Temp.toConnectionString db) $ \conn -> do
                 flip runSqlConn conn $ do
-                    runMigrationSilent (const id makeUnlogged migrateAll)
+                    runMigrationSilent (makeUnlogged migrateAll)
                 liftIO $ action $ TestDb conn
         case eresult of
             Left e -> throwM e
