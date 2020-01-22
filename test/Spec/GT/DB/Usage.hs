@@ -22,7 +22,7 @@ spec = do
             runNoLoggingT $
             withPostgresqlConn (Temp.toConnectionString db) $ \conn ->
             flip runSqlConn conn $ do
-                runMigration migrateAll
+                runMigrationSilent migrateAll
                 componentId <- insert Component
                     { componentName = "Scrubtrout"
                     , componentPart = "Frame"
