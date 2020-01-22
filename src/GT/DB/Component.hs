@@ -30,19 +30,15 @@ componentsForBike bikeId =
 WITH RECURSIVE children AS (
     SELECT c.*
     FROM component AS c
+    WHERE c.id = #{bikeId}
 
     UNION
 
     SELECT c_r.*
     FROM component AS c_r
     INNER JOIN children AS c
-        ON c_r.id = c.parent
+        ON c.id = c_r.parent
     )
 SELECT ??
-FROM component AS c
-INNER JOIN children AS component
-    ON c.id = component.parent
-    OR c.id = component.id
-    OR c.parent = component.id
-WHERE c.id = #{bikeId}
+FROM children AS component
     |]

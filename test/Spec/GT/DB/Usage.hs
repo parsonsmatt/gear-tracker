@@ -52,7 +52,7 @@ spec = do
 
                 usages <- Usage.new bikeId rideId
                 map entityVal usages
-                    `shouldBe`
+                    `shouldMatchList`
                         [ Usage rideId frameId
                         , Usage rideId wheelId
                         , Usage rideId tireId
