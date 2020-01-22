@@ -45,6 +45,7 @@ default-extensions:
 - QuasiQuotes
 - StandaloneDeriving
 - TemplateHaskell
+- TypeApplications
 - TypeFamilies
 - UndecidableInstances
 

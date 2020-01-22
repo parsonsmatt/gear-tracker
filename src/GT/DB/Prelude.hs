@@ -8,6 +8,8 @@ module GT.DB.Prelude
     , module GT.Prelude
     , SqlPersistT
     , Entity(..)
+    , OnlyOneUniqueKey(..)
+    , AtLeastOneUniqueKey(..)
     ) where
 
 import GT.Prelude
