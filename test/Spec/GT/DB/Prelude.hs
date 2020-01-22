@@ -11,14 +11,19 @@ module Spec.GT.DB.Prelude
 
 import Spec.GT.Prelude
 
-import UnliftIO
+import qualified Debug.Trace as Debug
+import           UnliftIO
 
 import           Control.Monad.Logger
+import           Control.Monad.Reader
+import           Control.Monad.Writer
+import qualified Data.Text                   as Text
 import           Database.Persist.Postgresql
 import qualified Database.Postgres.Temp      as Temp
 import           Test.Hspec
+import           Text.Shakespeare.Text       (st)
 
-import           GT.DB.Schema.Migration
+import GT.DB.Schema.Migration
 
 -- https://github.com/hspec/hspec/issues/255#issuecomment-568933195
 aroundAll :: forall a. ((a -> IO ()) -> IO ()) -> SpecWith a -> Spec
@@ -70,8 +75,39 @@ provideDatabase = do
         eresult <- Temp.with $ \db ->
             runNoLoggingT $
             withPostgresqlConn (Temp.toConnectionString db) $ \conn -> do
-                runSqlConn (runMigrationSilent migrateAll) conn
+                flip runSqlConn conn $ do
+                    runMigrationSilent (const id makeUnlogged migrateAll)
                 liftIO $ action $ TestDb conn
         case eresult of
             Left e -> throwM e
             Right _ -> pure ()
+
+makeUnlogged :: Migration -> Migration
+makeUnlogged =
+    mapWriterT (censor (fmap (fmap (Text.replace "CREATe TABLE" "CREATe UNLOGGED TABLE"))))
+
+-- This function will truncate all of the tables in your database.
+-- 'withApp' calls it before each test, creating a clean environment for each
+-- spec to run in.
+--
+-- lifted from yesod scaffold
+wipeDB :: MonadIO m => SqlPersistT m ()
+wipeDB = do
+    tables <- getTables
+    sqlBackend <- ask
+
+    let escapedTables = map (connEscapeName sqlBackend . DBName) tables
+        query = "TRUNCATE TABLE " <> Text.intercalate ", " escapedTables
+    rawExecute query []
+
+-- lifted from yesod scaffold
+getTables :: MonadIO m => SqlPersistT m [Text]
+getTables = do
+    tables <- rawSql [st|
+        SELECT table_name
+        FROM information_schema.tables
+        WHERE table_schema = 'public'
+        AND table_type = 'BASE TABLE';
+    |] []
+
+    return $ map unSingle tables

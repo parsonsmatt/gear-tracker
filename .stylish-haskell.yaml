@@ -62,7 +62,7 @@ steps:
       #   >     (concat, foldl, foldr, head, init, last, length)
       #
       # Default: after_alias
-      list_align: new_line
+      list_align: with_module_name
 
       # Right-pad the module names to align imports in a group:
       #
@@ -231,6 +231,7 @@ language_extensions:
 - TypeApplications
 - TemplateHaskell
 - TypeFamilies
+- QuasiQuotes
 - UndecidableInstances
 - GADTs
 - MultiParamTypeClasses

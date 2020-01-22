@@ -42,6 +42,4 @@ spec = do
                     }
 
                 Usage.new bikeId rideId
-            length @[] usages
-                `shouldBe`
-                    2
+            length @[] usages `shouldBe` 2

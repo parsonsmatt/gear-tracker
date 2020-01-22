@@ -27,11 +27,13 @@ dependencies:
 - esqueleto
 - hspec
 - monad-logger
+- mtl
 - persistent
 - persistent-postgresql
 - persistent-qq
 - persistent-template
 - safe-exceptions
+- shakespeare
 - template-haskell
 - text
 - time
