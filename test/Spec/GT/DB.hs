@@ -1,9 +1,9 @@
 module Spec.GT.DB where
 
-import Test.Hspec
+import Spec.GT.DB.Prelude
 
-import qualified Spec.GT.DB.Usage as Usage
+import qualified Spec.GT.DB.Usage       as Usage
 
 spec :: Spec
-spec = do
+spec = provideDatabase $ do
     describe "Usage" Usage.spec

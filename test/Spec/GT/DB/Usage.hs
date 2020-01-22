@@ -1,10 +1,11 @@
 module Spec.GT.DB.Usage where
 
-import Spec.GT.Prelude
+import Spec.GT.DB.Prelude
 
 import           Control.Monad.Logger
 import           Data.Time.Clock
 import           Database.Persist.Postgresql
+import Data.Traversable
 import qualified Database.Postgres.Temp      as Temp
 
 import GT.DB.Schema.Migration
@@ -13,16 +14,11 @@ import GT.DB.Schema.Component
 import GT.DB.Schema.Ride
 import GT.DB.Usage            as Usage
 
-spec :: Spec
+spec :: SpecWith TestDb
 spec = do
     describe "new" $ do
-        it "works" $
-            void $
-            Temp.with $ \db ->
-            runNoLoggingT $
-            withPostgresqlConn (Temp.toConnectionString db) $ \conn ->
-            flip runSqlConn conn $ do
-                runMigrationSilent migrateAll
+        it "works" $ \conn -> do
+            usages <- runTestDb conn $ do
                 componentId <- insert Component
                     { componentName = "Scrubtrout"
                     , componentPart = "Frame"
@@ -45,8 +41,7 @@ spec = do
                     , rideDate = UTCTime (fromGregorian 2020 01 03) 0
                     }
 
-                usages <- Usage.new bikeId rideId
-                liftIO $
-                    length @[] usages
-                        `shouldBe`
-                            2
+                Usage.new bikeId rideId
+            length @[] usages
+                `shouldBe`
+                    2

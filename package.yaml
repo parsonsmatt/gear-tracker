@@ -22,18 +22,21 @@ description:         Please see the README on GitHub at <https://github.com/gith
 
 dependencies:
 - base >= 4.7 && < 5
+- async
 - directory
 - esqueleto
+- hspec
 - monad-logger
 - persistent
 - persistent-postgresql
 - persistent-qq
 - persistent-template
+- safe-exceptions
 - template-haskell
 - text
 - time
 - tmp-postgres
-- hspec
+- unliftio
 
 default-extensions:
 - DerivingStrategies
