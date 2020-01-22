@@ -24,8 +24,8 @@ mileage componentId =
     where_ $ usage ^. UsageComponent ==. val componentId
     pure $ sum_ $ ride ^. RideDistance
 
-componentsForBike :: MonadIO m => BikeId -> SqlPersistT m [Entity Component]
-componentsForBike bikeId =
+getForBike :: MonadIO m => BikeId -> SqlPersistT m [Entity Component]
+getForBike bikeId =
     [sqlQQ|
 WITH RECURSIVE children AS (
     SELECT c.*

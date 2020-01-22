@@ -27,7 +27,7 @@ new bikeId rideId = do
         Nothing ->
             pure []
         Just _ -> do
-            components <- Component.componentsForBike bikeId
+            components <- Component.getForBike bikeId
             for components $ \(Entity componentId _) ->
                 insertEntity Usage
                     { usageComponent = componentId

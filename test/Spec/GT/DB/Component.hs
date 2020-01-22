@@ -10,7 +10,7 @@ import qualified GT.DB.Component as Component
 
 spec :: SpecWith TestDb
 spec = do
-    describe "listForBike" $ do
+    describe "getForBike" $ do
         it "works" $ \conn -> do
             runTestDb conn $ do
                 let frame = Component
@@ -69,7 +69,7 @@ spec = do
                     , componentParent = Just frame2Id
                     }
 
-                components <- Component.componentsForBike bikeId
+                components <- Component.getForBike bikeId
                 map (componentName . entityVal) components
                     `shouldMatchList`
                         map componentName [ wheel, tire, handlebars, frame ]
