@@ -8,7 +8,7 @@ module GT.DB.Usage
 import GT.DB.Prelude
 
 import Database.Persist.Sql.Raw.QQ
-import Database.Persist.Sql (insertEntity, get)
+import Database.Persist.Sql (insert, get)
 
 import GT.DB.Schema.Bike
 import GT.DB.Schema.Component
@@ -19,7 +19,7 @@ import GT.DB.Schema.Ride
 -- 'Ride'.
 --
 -- TODO: esqueleto does not support CTEs. It should!
-new :: (MonadIO m) => BikeId -> RideId -> SqlPersistT m [Entity Usage]
+new :: (MonadIO m) => BikeId -> RideId -> SqlPersistT m [UsageId]
 new bikeId rideId = do
     mride <- get rideId
     case mride of
@@ -46,7 +46,7 @@ WHERE b.component = #{bikeId}
                 |]
 
             for components $ \(Entity componentId _) ->
-                insertEntity Usage
+                insert Usage
                     { usageComponent = componentId
                     , usageRide = rideId
                     }
