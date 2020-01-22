@@ -7,6 +7,7 @@ module Spec.GT.DB.Prelude
     , TestDb
     , runTestDb
     , provideDatabase
+    , itDb
     ) where
 
 import Spec.GT.Prelude
@@ -65,6 +66,10 @@ runTestDb (TestDb conn) action =
         result <- action
         transactionUndo
         pure result
+
+-- | Run a database specific test.
+itDb :: String -> SqlPersistT IO a -> SpecWith TestDb
+itDb msg action = it msg $ \conn -> void (runTestDb conn action)
 
 -- | Provide a shared database connection to the tests. This summons up
 -- a database connection, runs migrations, and passes it to the test
