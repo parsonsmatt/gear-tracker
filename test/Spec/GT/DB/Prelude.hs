@@ -45,8 +45,15 @@ aroundAll withFunc specWith = do
 
   beforeAll theStart $ afterAll theStop $ specWith
 
+-- | A 'TestDb' is a newtype wrapper around the @persistent@ 'SqlBackend'
+-- type. The default way to use this is to call 'runTestDb', which performs
+-- the action, returns the result, and then undoes the transaction, which
+-- should allow for fast database tests.
 newtype TestDb = TestDb { unTestDb :: SqlBackend }
 
+-- | Run the given action and rollback the transaction that created it.
+-- This allows you to insert whatever records you need into the database
+-- while not having to worry about cleaning them up.
 runTestDb :: TestDb -> SqlPersistT IO a -> IO a
 runTestDb (TestDb conn) action =
     flip runSqlConn conn $ do
@@ -54,7 +61,9 @@ runTestDb (TestDb conn) action =
         transactionUndo
         pure result
 
-
+-- | Provide a shared database connection to the tests. This summons up
+-- a database connection, runs migrations, and passes it to the test
+-- suites scoped under it.
 provideDatabase :: SpecWith TestDb -> Spec
 provideDatabase = do
     aroundAll $ \action -> do
@@ -66,4 +75,3 @@ provideDatabase = do
         case eresult of
             Left e -> throwM e
             Right _ -> pure ()
-
