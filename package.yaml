@@ -22,27 +22,36 @@ description:         Please see the README on GitHub at <https://github.com/gith
 
 dependencies:
 - base >= 4.7 && < 5
+- async
 - directory
 - esqueleto
+- hspec
+- hspec-expectations-lifted
 - monad-logger
+- mtl
 - persistent
 - persistent-postgresql
 - persistent-qq
 - persistent-template
+- safe-exceptions
+- shakespeare
 - template-haskell
 - text
 - time
 - tmp-postgres
-- hspec
+- unliftio
 
 default-extensions:
+- DerivingStrategies
 - GADTs
 - GeneralizedNewtypeDeriving
 - MultiParamTypeClasses
 - NoImplicitPrelude
 - OverloadedStrings
 - QuasiQuotes
+- StandaloneDeriving
 - TemplateHaskell
+- TypeApplications
 - TypeFamilies
 - UndecidableInstances
 

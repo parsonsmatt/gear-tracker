@@ -1,3 +1,5 @@
 Usage
     ride        RideId
     component   ComponentId
+
+    deriving Show Eq
